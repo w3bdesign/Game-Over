@@ -1,5 +1,6 @@
 export class Character {
-  constructor() {
+  constructor(p5Instance) {
+    this.p = p5Instance;
     this.size = 60;
     this.x = this.size;
     this.y = 0;
@@ -13,8 +14,8 @@ export class Character {
 
   jump(platforms) {
     if (
-      this.y === height - this.size ||
-      height - (this.y + this.size) === platforms[0]?.height
+      this.y === this.p.height - this.size ||
+      this.p.height - (this.y + this.size) === platforms[0]?.height
     ) {
       this.velocity = -20;
     }
@@ -34,7 +35,7 @@ export class Character {
         this.currentLoopIndex = 0;
       }
     }
-    image(
+    this.p.image(
       characterSprite,
       this.x,
       this.y,
@@ -55,6 +56,6 @@ export class Character {
   }
 
   collide() {
-    return this.y - this.size >= height;
+    return this.y - this.size >= this.p.height;
   }
 }

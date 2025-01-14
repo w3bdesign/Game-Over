@@ -6,8 +6,8 @@ export class Platform {
     this.speed = speed;
   }
 
-  show(platform) {
-    image(platform, this.x, height - this.height, this.w, this.height / 2);
+  show(platform, p) {
+    p.image(platform, this.x, p.height - this.height, this.w, this.height / 2);
   }
 
   update() {

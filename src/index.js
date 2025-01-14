@@ -17,13 +17,13 @@ let gameOverSound,
   platformWidth;
 
 function preload() {
-  jumpSound = loadSound("audio/jump.mp3");
-  gameOverSound = loadSound("audio/game_over.mp3");
-  themeSong = loadSound("audio/game_theme.mp3");
-  fontRegular = loadFont("fonts/arcadeclassic.ttf");
-  characterSprite = loadImage("images/DinoSprite.png");
-  backgroundImg = loadImage("images/background.png");
-  platformImg = loadImage("images/platform.png");
+  jumpSound = loadSound("/audio/jump.mp3");
+  gameOverSound = loadSound("/audio/game_over.mp3");
+  themeSong = loadSound("/audio/game_theme.mp3");
+  fontRegular = loadFont("/fonts/arcadeclassic.ttf");
+  characterSprite = loadImage("/images/DinoSprite.png");
+  backgroundImg = loadImage("/images/background.png");
+  platformImg = loadImage("/images/platform.png");
 }
 
 function setup() {

@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="/src/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.sound.js"></script>
-    <script src="/src/platform.js"></script>
-    <script src="/src/character.js"></script>
-    <script src="/src/game.js"></script>
-    <script src="/src/index.js"></script>
+    <script type="module">
+      import { preload, setup, draw, keyPressed } from '/src/index.js';
+      Object.assign(window, { preload, setup, draw, keyPressed });
+    </script>
   </head>
   <body>
   </body>

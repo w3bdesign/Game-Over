@@ -1,6 +1,4 @@
-"use strict";
-
-class Character {
+export class Character {
   constructor() {
     this.size = 60;
     this.x = this.size;
@@ -13,23 +11,20 @@ class Character {
     this.currentLoopIndex = 0;
   }
 
-  // Enables the character to jump on a block
-  jump() {
+  jump(platforms) {
     if (
-      this.y == height - this.size ||
-      height - (this.y + this.size) == platforms[0].height
+      this.y === height - this.size ||
+      height - (this.y + this.size) === platforms[0]?.height
     ) {
       this.velocity = -20;
     }
   }
 
-  // Gravity of the characters jump
   move() {
     this.y += this.velocity;
     this.velocity += this.gravity;
   }
 
-  // Animates the character sprite
   show(characterSprite) {
     this.frames++;
     if (this.frames >= this.frameLimit) {
@@ -51,23 +46,15 @@ class Character {
     );
   }
 
-  // Checking if the character is on a platform
-  intersect() {
-    for (let i = 0; i < platforms.length; i++) {
-      if (
-        this.y > platforms[i].height &&
-        this.x + this.size / 2 > platforms[i].x &&
-        this.x < platforms[i].x + platforms[i].w
-      ) {
-        return true;
-      }
-    }
+  intersect(platforms) {
+    return platforms.some(platform => 
+      this.y > platform.height &&
+      this.x + this.size / 2 > platform.x &&
+      this.x < platform.x + platform.w
+    );
   }
 
-  // Checking if the character collide with the ground
   collide() {
-    if (this.y - this.size >= height) {
-      return true;
-    }
+    return this.y - this.size >= height;
   }
 }
